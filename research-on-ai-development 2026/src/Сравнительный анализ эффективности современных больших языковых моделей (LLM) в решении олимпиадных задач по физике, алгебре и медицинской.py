@@ -2,21 +2,23 @@ import json
 import os
 from openai import OpenAI
 
-# 1. Настройка API (укажите ваш ключ и base_url вашего прокси-провайдера)
+# 1. Настройка API под международный OpenRouter
 client = OpenAI(
-    api_key="ВАШ_API_КЛЮЧ",
-    base_url="https://proxyapi.ru"  # Проверьте актуальный адрес в ЛК провайдера
+    api_key="sk-or-v1-xxxxxxxx...",  #  новый ключ от OpenRouter
+    base_url="https://openrouter.ai"  # Официальный адрес агрегатора
 )
 
-# 2. Список моделей для личного теста
+
+# 2. Имена этих моделей в системе OpenRouter
 models_to_test = [
-    "gpt-4o",               # Chat GPT (OpenAI)
-    "deepseek-chat",        # DeepSeek
-    "yandexgpt/latest",     # YandexGPT
-    "grok-beta",            # Grok (xAI)
-    "gemini-1.5-pro",       # Gemini (Google)
-    "claude-3-5-sonnet"     # Claude (Anthropic)
+    "openai/gpt-4o",                # Chat GPT (OpenAI)
+    "deepseek/deepseek-chat",       # DeepSeek V3
+    "yandex/yandexgpt-latest",      # YandexGPT (если доступен в регионе)
+    "x-ai/grok-2-1212",             # Grok (xAI)
+    "google/gemini-pro-1.5",        # Gemini (Google)
+    "anthropic/claude-3-5-sonnet"   # Claude (Anthropic)
 ]
+
 
 # 3. База правильных ответов для сравнения
 correct_answers = {
