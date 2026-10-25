@@ -35,18 +35,16 @@ This table shows the percentage of correct answers for each model in the first y
 
 | AI Model | Math Accuracy | Physics Accuracy | Medicine Accuracy |
 | :--- | :---: | :---: | :---: |
-| **Claude** | 55% | 58% | 74% |
-| **ChatGPT** | 50% | 52% | 78% |
-| **DeepSeek** | 48% | 50% | 68% |
-| **Gemini** | 40% | 45% | 65% |
-| **Meta AI** | 35% | 38% | 60% |
-| **Grok** | 38% | 35% | 58% |
-| **Alisa AI** | 30% | 32% | 50% |
+| **Claude** | -% | -% | -% |
+| **ChatGPT** | -% | -% | -% |
+| **DeepSeek** | -% | -% | -% |
+| **Gemini** | -% | -% | -% |
+| **Meta AI** | -% | -% | -% |
+| **Grok** | -% | -% | -% |
+| **Alisa AI** | -% | -% | -% |
 
 ### Main Conclusions:
-* **Claude** and **ChatGPT** showed the best results in logic and science.
-* **DeepSeek** is performing very close to the top models.
-* Math is still the hardest subject for all AI models.
+
 
 ##  Plans for Year 2 & 3
 * **Year 2:** Test the same problems on the new versions of these AI models to see the progress.
@@ -85,20 +83,18 @@ This table shows the percentage of correct answers for each model in the first y
 ## 📊 Результаты 1-го года
 В этой таблице показан процент правильных ответов каждой модели за первый год:
 
-| Модель ИИ | Точность (Мат) | Точность (Физ) | Точность (Мед) |
+| AI Model | Math Accuracy | Physics Accuracy | Medicine Accuracy |
 | :--- | :---: | :---: | :---: |
-| **Claude** | 55% | 58% | 74% |
-| **ChatGPT** | 50% | 52% | 78% |
-| **DeepSeek** | 48% | 50% | 68% |
-| **Gemini** | 40% | 45% | 65% |
-| **Meta AI** | 35% | 38% | 60% |
-| **Grok** | 38% | 35% | 58% |
-| **Alisa AI** | 30% | 32% | 50% |
+| **Claude** | -% | -% | -% |
+| **ChatGPT** | -% | -% | -% |
+| **DeepSeek** | -% | -% | -% |
+| **Gemini** | -% | -% | -% |
+| **Meta AI** | -% | -% | -% |
+| **Grok** | -% | -% | -% |
+| **Alisa AI** | -% | -% | -% |
 
 ### Главные выводы:
-* **Claude** и **ChatGPT** показали лучшие результаты в логике и науке.
-* **DeepSeek** идет очень близко к лидерам.
-* Математика все еще остается самым сложным предметом для всех моделей ИИ.
+
 
 ##  Планы на 2-й и 3-й годы
 * **2-й год:** протестировать те же задачи на новых версиях этих же моделей, чтобы увидеть чистый прогресс.
