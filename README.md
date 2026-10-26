@@ -51,7 +51,7 @@ import time
 from openai import OpenAI
 
 # 1. НАСТРОЙКА API ПОД PROXYAPI (Ключ встроен прямо в код)
-# Вставьте ваш секретный токен вместо proxyapi-xxxxxxxxxxxx...
+# секретный токен 
 client = OpenAI(
     api_key="proxyapi-xxxxxxxxxxxx...", 
     base_url="https://proxyapi.ru"
