@@ -43,6 +43,81 @@ This table shows the percentage of correct answers for each model in the first y
 | **Grok** | -% | -% | -% |
 | **Alisa AI** | -% | -% | -% |
 
+### 🛠️ Technical Implementation & Methodology
+
+The evaluation process is fully automated using a structured Python pipeline. To ensure fair and identical testing conditions across all large language models (LLMs), the project utilizes the unified **OpenRouter API** architecture.
+
+#### Key Features of the Pipeline:
+* **Strict Reproducibility:** The `temperature` parameter is hardcoded to `0.1` to reduce stochastic variance and ensure deterministic reasoning.
+* **Unified Interface:** Allows seamless evaluation of heterogeneous models (`GPT-4o`, `Claude 3.5 Sonnet`, `DeepSeek V3`, `Grok 2`, `Gemini Pro`) within a single loop.
+* **Input Isolation:** Tasks are decoupled from the codebase and dynamically parsed from an external `tasks.txt` source payload using structured delimiters (`===`).
+
+#### Core Evaluation Script (`src/benchmark_runner.py`)
+
+```python
+import os
+import json
+from openai import OpenAI
+
+# Initialize the client leveraging OpenRouter infrastructure via Environment Variables
+client = OpenAI(
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url="https://openrouter.ai"
+)
+
+# Benchmark Suite: Multi-provider model configuration
+models_to_test = [
+    "openai/gpt-4o",
+    "deepseek/deepseek-chat",
+    "x-ai/grok-2-1212",
+    "google/gemini-pro-1.5",
+    "anthropic/claude-3-5-sonnet"
+]
+
+def run_benchmark(tasks, correct_answers):
+    results = {}
+    
+    for model in models_to_test:
+        results[model] = []
+        for idx, task in enumerate(tasks, 1):
+            try:
+                response = client.chat.completions.create(
+                    model=model,
+                    messages=[
+                        {
+                            "role": "system", 
+                            "content": "You are an elite expert in STEM and Medicine. "
+                                       "Solve the problem step-by-step, outline your logic, "
+                                       "and provide the exact final answer at the end."
+                        },
+                        {"role": "user", "content": task}
+                    ],
+                    temperature=0.1  # Enforces maximum deterministic response behavior
+                )
+                
+                results[model].append({
+                    "task_number": idx,
+                    "ai_answer": response.choices.message.content,
+                    "correct_answer": correct_answers.get(idx)
+                })
+            except Exception as e:
+                print(f"API Execution Error for {model} on Task {idx}: {e}")
+                
+    return results
+```
+
+#### How to Reproduce
+
+1. Clone the repository and install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Set your API credentials:
+   ```bash
+   export OPENROUTER_API_KEY="your_openrouter_api_key_here"
+   ```
+3. Populate `data/tasks.txt` with your evaluation targets separated by `===` and execute the core runner script.
+
 ### Main Conclusions:
 
 
