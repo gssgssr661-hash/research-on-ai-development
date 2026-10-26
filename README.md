@@ -45,29 +45,27 @@ This table shows the percentage of correct answers for each model in the first y
 
 ### 🛠️ Technical Implementation & Methodology
 
-import json
 import os
+import json
+import time
 from openai import OpenAI
 
-# 1. Настройка API под международный OpenRouter
+# 1. НАСТРОЙКА API ПОД PROXYAPI (Ключ встроен прямо в код)
+# Вставьте ваш секретный токен вместо proxyapi-xxxxxxxxxxxx...
 client = OpenAI(
-    api_key="sk-or-v1-xxxxxxxx...",  #  новый ключ от OpenRouter
-    base_url="https://openrouter.ai"  # Официальный адрес агрегатора
+    api_key="proxyapi-xxxxxxxxxxxx...", 
+    base_url="https://proxyapi.ru"
 )
 
-
-# 2. Имена этих моделей в системе OpenRouter
+# 2. АКТУАЛЬНЫЕ ИМЕНА МОДЕЛЕЙ В СИСТЕМЕ PROXYAPI
 models_to_test = [
-    "openai/gpt-4o",                # Chat GPT (OpenAI)
-    "deepseek/deepseek-chat",       # DeepSeek V3
-    "yandex/yandexgpt-latest",      # YandexGPT (если доступен в регионе)
-    "x-ai/grok-2-1212",             # Grok (xAI)
-    "google/gemini-pro-1.5",        # Gemini (Google)
-    "anthropic/claude-3-5-sonnet"   # Claude (Anthropic)
+    "gpt-4o",               # ChatGPT (OpenAI)
+    "claude-3-5-sonnet",    # Claude (Anthropic)
+    "deepseek-chat",        # DeepSeek V3
+    "gemini-1.5-pro"        # Gemini (Google)
 ]
 
-
-# 3. База правильных ответов для сравнения
+# 3. БАЗА ПРАВИЛЬНЫХ ОТВЕТОВ ДЛЯ СРАВНЕНИЯ
 correct_answers = {
     1: "45 °C",
     2: "2.0 °C",
@@ -96,7 +94,7 @@ with open(input_filename, "r", encoding="utf-8") as f:
 print(f"📚 Загружено задач из файла: {len(tasks)}")
 results = {}
 
-# 4. Цикл опроса нейросетей
+# 4. ЦИКЛ ОПРОСА НЕЙРОСЕТЕЙ
 for model in models_to_test:
     print(f"\n🤖 Опрашиваю модель: [{model}]...")
     results[model] = []
@@ -116,11 +114,11 @@ for model in models_to_test:
                     },
                     {"role": "user", "content": task}
                 ],
-                temperature=0.1
+                temperature=0.1  # Низкая температура для минимизации случайных ошибок
             )
             answer = response.choices.message.content
             
-            # Сохраняем ответ и прикрепляем правильный вариант для ручной сверки
+            # Сохраняем ответ модели
             results[model].append({
                 "task_number": idx,
                 "task_text": task,
@@ -135,8 +133,11 @@ for model in models_to_test:
                 "ai_answer": f"Ошибка запроса к API: {e}",
                 "correct_answer": correct_answers.get(idx, "Нет данных")
             })
+        
+        # Небольшая пауза между запросами, чтобы не превышать лимиты (Rate Limits)
+        time.sleep(1)
 
-# 5. Сохранение всех результатов в один файл
+# 5. СОХРАНЕНИЕ ВСЕХ РЕЗУЛЬТАТОВ В JSON
 with open(output_filename, "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=4)
 
