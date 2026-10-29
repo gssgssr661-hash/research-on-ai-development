@@ -54,7 +54,7 @@ from openai import OpenAI
 sys.stdout.reconfigure(encoding="utf-8")
 
 # ====== ВСТАВЬТЕ КЛЮЧ PROXYAPI СЮДА ======
-API_KEY = "sk-102T3NttWc4KP2fXrUDwbflgKgMpZUfl"
+
 # =========================================
 
 proxy = OpenAI(api_key=API_KEY, base_url="https://api.proxyapi.ru/v1")
