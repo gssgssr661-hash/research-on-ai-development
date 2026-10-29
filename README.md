@@ -30,18 +30,28 @@ I gave all AI models the same difficult tasks from real high school competitions
 *  **Physics:** Tasks that require hard formulas and deep understanding of physical laws.
 *  **Medicine:** Complex medical case studies and diagnostic questions.
 
-## 📊 Year 1 Results
-This table shows the percentage of correct answers for each model in the first year:
 
-| AI Model | Math Accuracy | Physics Accuracy | Medicine Accuracy |
-| :--- | :---: | :---: | :---: |
-| **Claude** | -% | -% | -% |
-| **ChatGPT** | -% | -% | -% |
-| **DeepSeek** | -% | -% | -% |
-| **Gemini** | -% | -% | -% |
-| **Meta AI** | -% | -% | -% |
-| **Grok** | -% | -% | -% |
-| **Alisa AI** | -% | -% | -% |
+📊 Year 1 Results
+
+
+#	Benchmark	ChatGPT	Claude	DeepSeek	Meta AI (Llama)
+1	77 °C	✅ 77	✅ 77	❌ 109	❌ 45
+2	1.0 °C	❌ t₂/64 formula, no number	✅ 1.0*	❌ 0.2	❌ 0.2
+3	option 2	✅	✅	✅	✅
+4	26 L/100 km	✅	✅	✅	✅
+5	5040	✅	✅	✅	✅
+6	200 ₽	✅	✅	✅	✅
+7	20°	❌ 45	❌ 15	❌ 30	❌ 15
+8	AB = 19	❌ 20	❌ 20	❌ 17	❌ 20
+9	8, 12, 16	❌ 16 (one of three)	❌ 24	❌ 21 and 24	❌ 32
+10	ARVI, antibiotics not needed	✅	✅	✅	✅
+
+
+AI Model	Physics	Math	Medicine	Total
+Claude	100% (4/4)	40% (2/5)	100% (1/1)	70%
+ChatGPT	75% (3/4)	40% (2/5)	100% (1/1)	60%
+DeepSeek	50% (2/4)	40% (2/5)	100% (1/1)	50%
+Meta AI (Llama)	50% (2/4)	40% (2/5)	100% (1/1)	50%
 
 ### 🛠️ Technical Implementation & Methodology
 
@@ -260,7 +270,12 @@ print(f"\n🏁 ГОТОВО! Результаты: {os.path.abspath(output_filen
 
 
 ### Main Conclusions:
-
+• Claude leads the pack with 70%, followed by ChatGPT at 60%, and DeepSeek and Llama tied at 50%. However, the margin is narrow: a single problem represents 10 percentage points, and the total sample size is only 10 problems. This cannot be considered a reliable rating.
+• Everyone solved the simple problems. Problems 3, 4, 5, 6, and the clinical case (Problem 10) were answered with 100% accuracy by all four models.
+• Physics is where the differences emerge. Only Claude and ChatGPT correctly calculated the temperature in Problem 1 (77 °C). DeepSeek and Llama failed to handle the liquid-mixing model correctly (getting 109 °C and 45 °C, respectively).
+• Complex geometry and combinatorics remained completely unsolved. None of the models provided a correct answer for Problems 7, 8, and 9.
+• Models often "hallucinated" or skipped steps in their reasoning. In Problem 8, DeepSeek and ChatGPT explicitly wrote "details omitted" before simply spitting out a random number.
+• Medicine failed to differentiate the models. The problem proved too simple for an Olympiad-level test, resulting in identical correct answers across the board.
 
 ##  Plans for Year 2 & 3
 * **Year 2:** Test the same problems on the new versions of these AI models to see the progress.
@@ -297,20 +312,30 @@ print(f"\n🏁 ГОТОВО! Результаты: {os.path.abspath(output_filen
 *  **Медицина:** комплексные медицинские кейсы и вопросы по диагностике.
 
 ## 📊 Результаты 1-го года
-В этой таблице показан процент правильных ответов каждой модели за первый год:
+№	Эталон	ChatGPT	Claude	DeepSeek	Meta AI (Llama)
+1	77 °C	✅ 77	✅ 77	❌ 109	❌ 45
+2	1,0 °C	❌ формула t₂/64, числа нет	✅ 1,0*	❌ 0,2	❌ 0,2
+3	вариант 2	✅	✅	✅	✅
+4	26 л/100 км	✅	✅	✅	✅
+5	5040	✅	✅	✅	✅
+6	200 ₽	✅	✅	✅	✅
+7	20°	❌ 45	❌ 15	❌ 30	❌ 15
+8	AB = 19	❌ 20	❌ 20	❌ 17	❌ 20
+9	8, 12, 16	❌ 16 (одно из трёх)	❌ 24	❌ 21 и 24	❌ 32
+10	ОРВИ, антибиотики не нужны	✅	✅	✅	✅
 
-| AI Model | Math Accuracy | Physics Accuracy | Medicine Accuracy |
-| :--- | :---: | :---: | :---: |
-| **Claude** | -% | -% | -% |
-| **ChatGPT** | -% | -% | -% |
-| **DeepSeek** | -% | -% | -% |
-| **Gemini** | -% | -% | -% |
-| **Meta AI** | -% | -% | -% |
-| **Grok** | -% | -% | -% |
-| **Alisa AI** | -% | -% | -% |
+Нейросеть	Физика	Математика	Медицина	Итого
+Claude	100% (4/4)	40% (2/5)	100% (1/1)	70%
+ChatGPT	75% (3/4)	40% (2/5)	100% (1/1)	60%
+DeepSeek	50% (2/4)	40% (2/5)	100% (1/1)	50%
+Meta AI (Llama)	50% (2/4)	40% (2/5)	100% (1/1)	50%
 
 ### Главные выводы:
-
+Лидирует Claude (70%), за ним ChatGPT (60%), DeepSeek и Llama (по 50%). Но разрыв маленький: одна задача это 10 процентных пунктов, а выборка всего 10 задач. Надёжным рейтингом это считать нельзя.
+Простые задачи решили все. Задачи 3, 4, 5, 6 и клиническая задача 10 выполнены всеми четырьмя моделями на 100%.
+Различия видны на физике. Только Claude и ChatGPT верно нашли температуру в задаче 1 (77 °C). DeepSeek и Llama ошиблись в модели переливаний (109 и 45 °C).
+Сложная геометрия и комбинаторика не решена никем. В задачах 7, 8 и 9 правильных ответов нет ни у одной модели. Модели часто «досочиняли» решение (в задаче 8 DeepSeek и ChatGPT пишут «детали опущены» и выдают число).
+Медицина не различает модели. Задача слишком лёгкая для олимпиадного уровня, все дали одинаковый ответ.
 
 ##  Планы на 2-й и 3-й годы
 * **2-й год:** протестировать те же задачи на новых версиях этих же моделей, чтобы увидеть чистый прогресс.
