@@ -1,8 +1,8 @@
 # research-on-ai-development
 A Three-Year Study of AI Development and its Comparative Performance in Solving Olympiad Problems in Physics, Mathematics, and Medicine
 # AI Development Study: Year 1 / Исследование развития ИИ: Год 1
-## Comparing ChatGPT, Alisa AI, Gemini, Meta AI, DeepSeek, Claude, and Grok 
-## Сравнение ChatGPT, Алисы, Gemini, Meta, DeepSeek, Claude и Grok
+## Comparing ChatGPT, Meta AI, DeepSeek, Claude 
+## Сравнение ChatGPT,Meta, DeepSeek, Claude 
 
 ---
 
@@ -19,7 +19,8 @@ Right now, this repository contains the results for **Year 1**. I tested the mod
 * **ChatGPT** (OpenAI)
 * **Claude** (Anthropic)
 * **DeepSeek**
-* **Meta A
+* **Meta Llama
+
 
 ##  How I Tested Them
 I gave all AI models the same difficult tasks from real high school competitions:
@@ -296,18 +297,16 @@ print(f"\n🏁 ГОТОВО! Результаты: {os.path.abspath(output_filen
 ##  О проекте
 Это школьный исследовательский проект. 
 В нем я тестирую и сравниваю, насколько хорошо разные модели ИИ решают сложные олимпиадные задачи. 
-Проект рассчитан на 3 года для отслеживания скорости развития ИИ.
+Проект рассчитан на 4 года для отслеживания скорости развития ИИ.
 
 Сейчас в этом репозитории собраны результаты за **1-й год**. Я протестировал нейросети в трех главных направлениях: **физика, математика и медицина**.
 
 ##  Протестированные модели ИИ
 * **ChatGPT** (OpenAI)
 * **Claude** (Anthropic)
-* **Gemini** (Google)
 * **DeepSeek**
 * **Meta AI**
-* **Grok** (xAI)
-* **Alisa AI** (Яндекс)
+
 
 ##  Как проходило тестирование
 Я давал всем моделям ИИ одинаковые сложные задания из реальных олимпиад для старших классов:
