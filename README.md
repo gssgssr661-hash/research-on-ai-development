@@ -18,11 +18,8 @@ Right now, this repository contains the results for **Year 1**. I tested the mod
 ##  Tested AI Models
 * **ChatGPT** (OpenAI)
 * **Claude** (Anthropic)
-* **Gemini** (Google)
 * **DeepSeek**
-* **Meta AI**
-* **Grok** (xAI)
-* **Alisa AI** (Yandex)
+* **Meta A
 
 ##  How I Tested Them
 I gave all AI models the same difficult tasks from real high school competitions:
@@ -284,7 +281,7 @@ print(f"\n🏁 ГОТОВО! Результаты: {os.path.abspath(output_filen
 • Models often "hallucinated" or skipped steps in their reasoning. In Problem 8, DeepSeek and ChatGPT explicitly wrote "details omitted" before simply spitting out a random number.
 • Medicine failed to differentiate the models. The problem proved too simple for an Olympiad-level test, resulting in identical correct answers across the board.
 
-##  Plans for Year 2 & 3
+##  Plans for Year 2 & 4
 * **Year 2:** Test the same problems on the new versions of these AI models to see the progress.
 * **Year 3:** Test how special prompts and settings can help AI solve these tasks better.
 
@@ -352,7 +349,7 @@ print(f"\n🏁 ГОТОВО! Результаты: {os.path.abspath(output_filen
 Сложная геометрия и комбинаторика не решена никем. В задачах 7, 8 и 9 правильных ответов нет ни у одной модели. Модели часто «досочиняли» решение (в задаче 8 DeepSeek и ChatGPT пишут «детали опущены» и выдают число).
 Медицина не различает модели. Задача слишком лёгкая для олимпиадного уровня, все дали одинаковый ответ.
 
-##  Планы на 2-й и 3-й годы
+##  Планы на 2-й и 4-й годы
 * **2-й год:** протестировать те же задачи на новых версиях этих же моделей, чтобы увидеть чистый прогресс.
 * **3-й год:** проверить, как специальные настройки и промпты помогают ИИ решать эти задачи лучше.
 
